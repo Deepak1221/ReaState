@@ -17,16 +17,17 @@ import {
 import 'react-native-gesture-handler'; 
 import { createDrawerNavigator  } from '@react-navigation/drawer';
 import DrawerNav from './navigations/DrawerNavigator'
-import {  createStore , combineReducers} from 'redux';
+import {  createStore , combineReducers ,applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import ProductReducer from "./store/reducers/ProductReducer";
 import SavedReducer from "./store/reducers/SavedReducer";
+import ReduxThunk from "redux-thunk";
 
 const rootReducer = combineReducers({
   productReducer : ProductReducer,
   savedReducer : SavedReducer
 });
- const store = createStore(rootReducer)
+ const store = createStore(rootReducer ,applyMiddleware(ReduxThunk))
 const Drawer = createDrawerNavigator();
 const App =  props  =>       {
   return ( 

@@ -4,47 +4,20 @@ import { icons, images, SIZES, COLORS, FONTS } from '../constants'
 import HomeHeader from "../common/HomeHeader";
 import { useSelector, useState } from 'react-redux';
 import PropItem from '../components/PropItem';
+import EmptyView from "../common/EmptyView";
 const Saved = props => {
     const { navigation } = props;
     const  savedproducts = useSelector(state =>state.savedReducer.savedItems)
-    // console.log(savedproducts)
-    // const toggleSavedHandler  = useCallback(()=>{
-    //     console.log("hii i am in useCallback")
-    //     savedproducts = useSelector(state =>state.savedReducer.savedItems)
+    const  savedCount = useSelector(state =>state.savedReducer.savedCount)
+    if(savedCount<1) {
+        return (
+        <EmptyView
+         msg = "No Saved Item Found"
 
-    //    },[])
-
-    // useEffect(() => {
-    //     const unsubscribe = navigation.addListener('focus', () => {
-    //         console.log("hii i am in focus")
-    //       // The screen is focused
-    //       // Call any action
-    //       toggleSavedHandler
-
-    //     });
-    
-    //     // Return the function to unsubscribe from the event so it gets removed on unmount
-    //     return unsubscribe;
-    //   }, [navigation]);
-    // useEffect(() => {
-    //     // Interval to update count
- 
-    
-    //     // Subscribe for the focus Listener
-    //     const unsubscribe = navigation.addListener('focus', () => {
-    //         savedproducts = useSelector(state =>state.savedReducer.savedItems)
-    //     });
-    
-    //     return () => {
-    //       // Clear setInterval in case of screen unmount
-         
-    //       // Unsubscribe for the focus Listener
-    //       unsubscribe;
-    //     };
-    //   }, [navigation]);
-
-
-    return (
+            />
+        )
+    }
+    return (    
         <View style={styles.container}>
             <HomeHeader 
              title="Saved"

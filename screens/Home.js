@@ -5,6 +5,9 @@ import HomeHeader from "../common/HomeHeader";
 import { useSelector, useState,useDispatch } from 'react-redux';
 import PropItem from '../components/PropItem';
 import { addtoSaved } from "../store/actions/SavedAction";
+import { toggleSave,getProductList } from "../store/actions/ProductAction";
+
+
 const Home = props => {
     const { navigation } = props;
     const products = useSelector(state =>state.productReducer.availableProducts)
@@ -12,7 +15,13 @@ const Home = props => {
 
     const toggleSavedHandler  = useCallback((item)=>{
         dispatch(addtoSaved(item));
+        dispatch(toggleSave(item.id));
        },[dispatch])
+
+       useEffect(() =>{
+           dispatch(getProductList())
+
+       },[dispatch,products])
 
     return (
         <View style={styles.container}>
@@ -24,7 +33,7 @@ const Home = props => {
 
             <FlatList
             data = {products}
-            keyExtractor={item =>item.id}
+            keyExtractor={item =>item._id}
             renderItem={
                 itemData => <PropItem
                 item = {itemData.item}

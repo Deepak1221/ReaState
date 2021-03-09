@@ -62,9 +62,11 @@ const Tabs = props => {
                         return <TabImage img={icons.search}color={focused ? COLORS.primary : COLORS.secondary}
                         />
                     } else if (route.name === 'Saved') {
-                        iconName = focused
-                            ? icons.star
-                            : icons.star;
+                        // iconName = focused
+                        //     ? icons.star
+               
+                        //     : icons.star;
+                        iconName = icons.heart_filled
                         return <HomeIconWithBadge
                             name={iconName}
                             size={size}

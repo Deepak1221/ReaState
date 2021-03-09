@@ -2,13 +2,13 @@ import PRODUCTS from "../../data/DummyData";
 import { ADD_TO_SAVE, REMOVE_FROM_SAVE } from "../actions/SavedAction";
 const initialState = {
     savedItems: [],
-    savedCount: 0
+    savedCount: 0,
+    status : 'error'| 'dwdwd'
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_SAVE:
-            console.log("hey"+state.availableProducts)
             const item = action.product
             const existingIndex = state.savedItems.findIndex(mItem => mItem.id === item.id)
             if (existingIndex >= 0) {

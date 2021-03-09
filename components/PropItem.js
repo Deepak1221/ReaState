@@ -21,7 +21,7 @@ const PropItem = props => {
                     style={styles.styeleWhiteCircle}>
                         <Image
                             style={styles.styeleIcon}
-                            source={icons.heart} />
+                            source={ item.isfav ? icons.heart_filled : icons.heart } />
                     </TouchableOpacity>
 
 
@@ -34,8 +34,9 @@ const PropItem = props => {
                 <View>
                     <Text style={styles.styelePriceTxt}>680,085 USD</Text>
                 </View>
-                <Text style={{ ...FONTS.body4 }}>
-                    {item.title}
+                <Text style={{ ...FONTS.body4 }}
+                numberOfLines={1}
+                >                    {item._source.en.title}
                 </Text>
                 <View style={styles.styeleAttributeContainer}>
 
@@ -178,6 +179,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor:COLORS.greenWhatsApp,
         marginEnd:8
+    },
+    title:{
+        numberOfLin
     },
 
 })
