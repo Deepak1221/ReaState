@@ -5,8 +5,6 @@ import CardView from '../common/CardView';
 import { icons, images, SIZES, COLORS, FONTS } from '../constants'
 import CustomButton from "../common/CustomButton"; 
 
-
-
 const PropItem = props => {
     const item = props.item
     return (
@@ -34,9 +32,10 @@ const PropItem = props => {
                 <View>
                     <Text style={styles.styelePriceTxt}>680,085 USD</Text>
                 </View>
-                <Text style={{ ...FONTS.body4 }}
-                numberOfLines={1}
-                >                    {item._source.en.title}
+                <Text 
+                 numberOfLines={1} ellipsizeMode='tail'
+                style={{ ...FONTS.body4 }}
+                >{item._source.en.title}
                 </Text>
                 <View style={styles.styeleAttributeContainer}>
 
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
         marginEnd:8
     },
     title:{
-        numberOfLin
+        
     },
 
 })

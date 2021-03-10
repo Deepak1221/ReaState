@@ -29,7 +29,11 @@ const Home = props => {
              title="Home"
              onMenuClick={()=>{
              props.navigation.toggleDrawer()
-            }}/>
+            }}
+            onAddPropertyClick = {()=>{
+             props.navigation.navigate('Add Property') 
+            }}
+            />
 
             <FlatList
             data = {products}
