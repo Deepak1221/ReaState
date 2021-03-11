@@ -28,6 +28,7 @@ export const menu = require("../assets/icons/menu.png");
 export const bell = require("../assets/icons/bell.png");
 export const heart = require("../assets/icons/heart.png");
 export const heart_filled = require("../assets/icons/heart_filled.png");
+export const cross = require("../assets/icons/cross.png");
 
 export default {
     back,
@@ -59,5 +60,6 @@ export default {
     menu,
     bell,
     heart,
-    heart_filled
+    heart_filled,
+    cross,
 }

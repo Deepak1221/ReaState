@@ -1,11 +1,14 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-const Detail = props => {
+const Detail = () => {
     return (
-        <View>
-            <Text>Detail</Text>
-        </View>
+      <View>
+     <Text></Text>
+    </View>
     )
 }
+
 export default Detail
+
+const styles = StyleSheet.create({})
